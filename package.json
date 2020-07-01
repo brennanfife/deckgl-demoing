@@ -1,0 +1,49 @@
+{
+  "name": "react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@deck.gl/aggregation-layers": "^8.2.0",
+    "@deck.gl/core": "^8.2.0",
+    "@deck.gl/google-maps": "^8.2.0",
+    "@deck.gl/layers": "^8.2.0",
+    "@deck.gl/react": "^8.2.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@types/node": "^14.0.14",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-map-gl": "^5.2.4",
+    "emotion-theming": "^10.0.27",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-map-gl": "^5.2.7",
+    "react-scripts": "3.4.1",
+    "typescript": "~3.9.6"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@danmarshall/deckgl-typings": "^4.1.11"
+  }
+}
