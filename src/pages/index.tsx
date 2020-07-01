@@ -43,7 +43,7 @@ const Info = styled.div`
   overflow-y: hidden;
 `;
 
-export default function App() {
+export default function Home() {
   enum MapStyle {
     'mapbox://styles/mapbox/satellite-v9',
     'mapbox://styles/mapbox/streets-v11',
@@ -56,21 +56,21 @@ export default function App() {
     Hex,
   }
 
-  const conditionVals = [
-    'armed robbery',
-    'home invasion',
-    'drive-by',
-    'suicide',
-    'defensive use',
-    'drug involvement',
-    'gang involvement',
-    'officer involved',
-    'mass shooting',
-  ];
-  const filteredish = getFilteredData(conditionVals).then((val: any) =>
-    console.log(val)
-  );
-  console.log('filteredish:', filteredish);
+  // const conditionVals = [
+  //   'armed robbery',
+  //   'home invasion',
+  //   'drive-by',
+  //   'suicide',
+  //   'defensive use',
+  //   'drug involvement',
+  //   'gang involvement',
+  //   'officer involved',
+  //   'mass shooting',
+  // ];
+  // const filteredish = getFilteredData(conditionVals).then((val: any) =>
+  //   console.log(val)
+  // );
+  // console.log('filteredish:', filteredish);
 
   const [currentMapStyle, setCurrentMapStyle] = useState(MapStyle[2]);
   const [currentMapType, setCurrentMapType] = useState(MapType[1]);
