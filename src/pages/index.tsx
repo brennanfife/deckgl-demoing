@@ -15,7 +15,6 @@ import {
 } from '../components/layers';
 import getFilteredData from '../components/getFiltered';
 
-const MAPBOX_API_KEY = process.env.REACT_APP_MAPBOX_API_KEY;
 const MAPBOX_API_KEY =
   'pk.eyJ1IjoiYnJlbmZpZmUiLCJhIjoiY2tieHkxMzViMG1oMTJ6cDdpdTF6cDB2ZiJ9.cEluY5CXGPMreXcH4mSBJg';
 
