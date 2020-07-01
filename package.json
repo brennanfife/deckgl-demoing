@@ -20,6 +20,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-map-gl": "^5.2.7",
+    "swr": "^0.2.3",
     "typescript": "~3.9.6"
   },
   "scripts": {

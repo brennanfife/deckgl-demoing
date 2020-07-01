@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { ScatterplotLayer } from '@deck.gl/layers';
-import { HeatmapLayer } from '@deck.gl/aggregation-layers';
-import { HexagonLayer } from '@deck.gl/aggregation-layers';
+// import { HeatmapLayer } from '@deck.gl/aggregation-layers';
+// import { HexagonLayer } from '@deck.gl/aggregation-layers';
 import DeckGL from '@deck.gl/react';
-import { StaticMap } from 'react-map-gl';
 import { MapView } from '@deck.gl/core';
+import { StaticMap } from 'react-map-gl';
 import styled from '@emotion/styled';
 import { Button, ButtonGroup, Checkbox, CheckboxGroup } from '@chakra-ui/core';
-
+import useSWR from 'swr';
 import {
   defaultScatterObject,
-  defaultHeatObject,
-  defaultHexObject,
+  // defaultHeatObject,
+  // defaultHexObject,
 } from '../components/layers';
 import getFilteredData from '../components/getFiltered';
 
 const MAPBOX_API_KEY =
   'pk.eyJ1IjoiYnJlbmZpZmUiLCJhIjoiY2tieHkxMzViMG1oMTJ6cDdpdTF6cDB2ZiJ9.cEluY5CXGPMreXcH4mSBJg';
 
+const GUN_DATA_ENDPOINT =
+  'https://firebasestorage.googleapis.com/v0/b/deckgldatamap.appspot.com/o/gundata.json?alt=media&token=113ee5d6-c816-47d5-8000-fcbf00997f13';
 // Viewport settings
 const INITIAL_VIEW_STATE = {
   longitude: -90,
@@ -42,6 +44,11 @@ const Info = styled.div`
   max-height: 240px;
   overflow-y: hidden;
 `;
+
+const getData = async () => {
+  const response = await fetch(GUN_DATA_ENDPOINT);
+  return await response.json();
+};
 
 export default function Home() {
   enum MapStyle {
@@ -82,15 +89,17 @@ export default function Home() {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(
-        'https://firebasestorage.googleapis.com/v0/b/deckgldatamap.appspot.com/o/gundata.json?alt=media&token=113ee5d6-c816-47d5-8000-fcbf00997f13'
-      );
+      const response = await fetch(GUN_DATA_ENDPOINT);
       const gunData = await response.json();
       setGunData(gunData);
     })();
 
     return () => {};
   }, [gunData]);
+
+  const { data, error } = useSWR(GUN_DATA_ENDPOINT, getData);
+  console.log('data:', data);
+  console.log('error:', error);
 
   function toggleMapStyle() {
     if (currentMapStyle === MapStyle[0]) setCurrentMapStyle(MapStyle[1]);
